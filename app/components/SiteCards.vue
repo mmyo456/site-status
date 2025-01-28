@@ -29,7 +29,7 @@
                 }}
               </n-text>
             </n-popover>
-            <!-- 跳转 -->
+            <!-- 跳转 
             <n-button
               v-if="site?.url"
               :focusable="false"
@@ -54,7 +54,7 @@
             <Icon v-else name="icon:pause" />
             <n-text>{{ siteStatusMap[site.status]?.text }}</n-text>
           </n-flex>
-        </n-flex>
+        </n-flex> -->
         <!-- 每日数据 -->
         <n-flex
           v-if="site?.days?.length"
