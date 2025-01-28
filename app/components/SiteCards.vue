@@ -1,4 +1,3 @@
-<!-- 站点数据卡片 -->
 <template>
   <Transition name="fade" mode="out-in">
     <div v-if="!isEmpty(siteData)" class="site-cards">
@@ -29,19 +28,6 @@
                 }}
               </n-text>
             </n-popover>
-            <!-- 跳转 
-            <n-button
-              v-if="site?.url"
-              :focusable="false"
-              size="tiny"
-              tertiary
-              round
-              @click="jumpLink(site.url)"
-            >
-              <template #icon>
-                <Icon name="icon:link" />
-              </template>
-            </n-button>
           </n-flex>
           <n-flex
             :style="{
@@ -54,7 +40,7 @@
             <Icon v-else name="icon:pause" />
             <n-text>{{ siteStatusMap[site.status]?.text }}</n-text>
           </n-flex>
-        </n-flex> -->
+        </n-flex>
         <!-- 每日数据 -->
         <n-flex
           v-if="site?.days?.length"
@@ -280,24 +266,28 @@ onMounted(getSiteData);
   &.loading {
     .site-item {
       min-height: 200px;
-      :deep(.n-card__content) {
-        padding: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      :deep(.n-card) {
+        height: 100%;
       }
     }
-    .n-spin-body {
-      --n-size: 40px;
-      --n-color: var(--color);
-    }
+  }
+  .n-popover .n-popover-content {
+    max-width: 250px;
   }
 }
-.day-data {
-  display: flex;
-  flex-direction: column;
-  .date {
-    font-size: 12px;
+@keyframes breathing {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes float-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
